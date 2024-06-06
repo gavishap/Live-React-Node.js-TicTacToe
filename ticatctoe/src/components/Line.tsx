@@ -3,15 +3,20 @@ import React from 'react';
 
 interface LineProps {
     rotation: number;
+    position: { x: number; y: number };
 }
 
-const Line: React.FC<LineProps> = ({ rotation }) => {
+const Line: React.FC<LineProps> = ({ rotation, position }) => {
     return (
         <div style={{
-            width: '100px', // Set width as needed
-            height: '2px', // Set height as needed
+            width: '300px',
+            height: '10px', // Increased thickness
             backgroundColor: 'black',
-            transform: `rotate(${rotation}deg)`
+            borderRadius: '5px', // Rounded edges
+            position: 'absolute',
+            left: `${position.x}px`,
+            top: `${position.y}px`,
+            transform: `rotate(${rotation}deg) translate(-50%, -50%)`
         }}>
         </div>
     );
